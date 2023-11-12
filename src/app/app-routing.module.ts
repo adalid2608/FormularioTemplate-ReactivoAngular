@@ -1,7 +1,15 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { NgModule } from '@angular/core';
+
+const routes: Routes = [
+{
+  path: "forms",
+  loadChildren: () => import ('./modules/formularios/formularios.module').then ( m => m.FormulariosModule)
+},{
+  redirectTo: "template", path: "**"
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
