@@ -11,10 +11,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { NgModule } from '@angular/core';
 import { TemplateComponent } from './pages/template/template.component';
+import { CustomSnackComponent } from './components/custom-snack/custom-snack.component';
 
 @NgModule({
   declarations: [
-    TemplateComponent
+    TemplateComponent,
+    CustomSnackComponent
   ],
   imports: [
     CommonModule,

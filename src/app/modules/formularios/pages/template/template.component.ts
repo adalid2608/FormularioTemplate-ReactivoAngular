@@ -1,6 +1,8 @@
 import { Habitaciones, Personas } from 'src/app/core/interfaces/IHotel';
 
 import { Component } from '@angular/core';
+import { CustomSnackComponent } from '../../components/custom-snack/custom-snack.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-template',
@@ -8,6 +10,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./template.component.scss']
 })
 export class TemplateComponent {
+
+  constructor(private snack : MatSnackBar) {
+    
+  }
+
   listaHabitaciones : Habitaciones[] = [
   {
     tipoHabitacion : "Individual",
@@ -105,9 +112,9 @@ action: any;
 guardarReserva(form : any){
   console.log(form);
   if (form.invalid) {
-    alert("Todos los campos del formulario deben estar llenos")
+    this.snack.open("El registro no se ah realizado correctamente", "Cerrar");
   } else {
-    alert(`${form.value.nombre} ${form.value.apellido} tu reservación se ah registrado correctamente para el dia ${form.value.fechaLlegada}. El tipo de habitación seleccionada es: ${form.value.tipoHabitacion} para ${form.controls.numPersonas.value} personas`)
+    this.snack.openFromComponent(CustomSnackComponent)
   }
 }
 }

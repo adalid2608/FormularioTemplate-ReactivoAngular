@@ -30,7 +30,7 @@
             </mat-select>
         </mat-form-field>
         <!-- DatePicker -->
-        <mat-form-field class="col-span-3">
+        <!-- <mat-form-field class="col-span-3">
             <mat-label>Fecha de llegada</mat-label>
             <input matInput [matDatepicker]="picker" [(ngModel)]="reserva.fechaLlegada" name="fechaLlegada" required>
             <mat-hint>MM/DD/YYYY</mat-hint>
@@ -40,19 +40,31 @@
 
         <mat-form-field class="col-span-3">
             <mat-label>Fecha de Salida</mat-label>
-            <input matInput [matDatepicker]="picker2" [(ngModel)]="reserva.fechaSalida" name="fechaSalida">
+            <input matInput [matDatepicker]="picker2" [(ngModel)]="reserva.fechaLlegada" name="fechaLlegada" required>
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
             <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field> -->
+
+        <mat-form-field class="col-span-3">
+            <mat-label>Seleccione la fecha de llegada y la fecha de salida</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date" [(ngModel)]="reserva.fechaLlegada" name="fechaLlegada" required>
+                <input matEndDate placeholder="End date" [(ngModel)]="reserva.fechaSalida" name="fechaSalida" required>
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
         </mat-form-field>
         <!-- TextArea -->
-        <mat-form-field class="col-span-6">
+        <mat-form-field class="col-span-3">
             <mat-label>Comentarios o solicitudes especiales</mat-label>
             <textarea matInput [(ngModel)]="reserva.comentarios" name="comentarios" pattern="[a-zA-z]{4,500}"></textarea>
         </mat-form-field>
     
         <aside class="col-span-6 flex justify-center">
-            <button mat-raised-button class="bg-green-300">Reservar Habitación
+            <button mat-raised-button class="bg-green-300">
+                Reservar Habitación
             </button>
         </aside>
     </section>
