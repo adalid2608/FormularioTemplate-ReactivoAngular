@@ -30,22 +30,6 @@
             </mat-select>
         </mat-form-field>
         <!-- DatePicker -->
-        <!-- <mat-form-field class="col-span-3">
-            <mat-label>Fecha de llegada</mat-label>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="reserva.fechaLlegada" name="fechaLlegada" required>
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field class="col-span-3">
-            <mat-label>Fecha de Salida</mat-label>
-            <input matInput [matDatepicker]="picker2" [(ngModel)]="reserva.fechaLlegada" name="fechaLlegada" required>
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-        </mat-form-field> -->
-
         <mat-form-field class="col-span-3">
             <mat-label>Seleccione la fecha de llegada y la fecha de salida</mat-label>
             <mat-date-range-input [rangePicker]="picker">

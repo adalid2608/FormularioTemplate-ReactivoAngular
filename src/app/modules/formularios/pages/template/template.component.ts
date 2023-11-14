@@ -106,9 +106,6 @@ reserva : any = {
   fechaSalida: null,
   comentarios: null
 }
-message: any;
-action: any;
-
 guardarReserva(form : any){
   console.log(form);
   if (form.invalid) {
